@@ -71,6 +71,7 @@ exports.fetchRepoDetails = async (req, res) => {
 const createGithubApi = async (session) => {
   const headers = { Accept: 'application/vnd.github.v3+json' };
 
+  // Priority 1: Check for user session token
   if (session?.userId) {
     const user = await User.findById(session.userId);
     if (user?.githubAccessToken) {
@@ -80,6 +81,13 @@ const createGithubApi = async (session) => {
       );
       return axios.create({ baseURL: 'https://api.github.com', headers });
     }
+  }
+
+  // Priority 2: Use GitHub Personal Access Token from environment (for development)
+  if (process.env.GITHUB_PERSONAL_TOKEN) {
+    headers['Authorization'] = `token ${process.env.GITHUB_PERSONAL_TOKEN}`;
+    console.log('Making authenticated GitHub API request using GITHUB_PERSONAL_TOKEN.');
+    return axios.create({ baseURL: 'https://api.github.com', headers });
   }
 
   console.log('Making unauthenticated GitHub API request (fallback).');

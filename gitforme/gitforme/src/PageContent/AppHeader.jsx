@@ -18,7 +18,7 @@ export const AppHeader = ({ isAuthenticated, user, onLogout, onLogin, repoUrl, s
                                         font-space-mono text-gray-900
                                         hover:text-amber-600 transition-colors"
                         >
-                            GitForMe
+                            RepoMind
                         </a>
 
                         {/* mobile version starts here*/}
@@ -111,7 +111,7 @@ export const AppHeader = ({ isAuthenticated, user, onLogout, onLogin, repoUrl, s
                                                 <span className="md:inline">Login</span>
                                             </button>
                                         )}
-                                        <div className="flex flex-col items-center">
+                                        {/* <div className="flex flex-col items-center">
                                             <a href="https://www.producthunt.com/products/gitforme?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-gitforme" target="_blank" rel="noopener noreferrer">
                                                 <img
                                                     src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=995370&theme=neutral" 
@@ -121,37 +121,14 @@ export const AppHeader = ({ isAuthenticated, user, onLogout, onLogin, repoUrl, s
                                                     height="54"
                                                 />
                                             </a>
-                                        </div>
-                                        <div className="flex flex-col items-center">
-                                            <a
-                                                href="https://pplx.ai/herinsoni"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white border-2 border-black rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 font-bold shadow-[4px_4px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-0.5 active:translate-y-0.5"
-                                                title="Get Free Comet Browser Access - Limited Time!"
-                                            >
-                                                🚀
-                                                <span>FREE Comet Browser!</span>
-                                                <span className="bg-yellow-300 text-black text-xs px-2 py-1 rounded-full font-black">NEW</span>
-                                            </a>
-                                        </div>
+                                        </div> */}
+                                        
                                     </div>
                                 </div>
                                 <div onClick={() => setOpen(false)} />
                             </div>
                         </div>
-<a
-    href="https://pplx.ai/herinsoni"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white border-2 border-black rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 font-bold shadow-[4px_4px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-0.5 active:translate-y-0.5 animate-pulse"
-    title="Get Free Comet Browser Access - Limited Time!"
->
-    🚀
-    <span className="hidden md:inline">FREE Comet Browser!</span>
-    <span className="md:hidden">FREE Comet!</span>
-    <span className="bg-yellow-300 text-black text-xs px-2 py-1 rounded-full font-black animate-bounce">NEW</span>
-</a>
+
 
                         {/* mobile version ends here*/}
                         <div className="hidden lg:flex-grow lg:flex gap-2">
@@ -170,7 +147,7 @@ export const AppHeader = ({ isAuthenticated, user, onLogout, onLogin, repoUrl, s
                         </div>
 
                         <div className="hidden lg:flex lg:items-center lg:gap-4 lg:flex-shrink-0">
-                            <a
+                            {/* <a
                                 href="https://github.com/herin7/gitforme"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -178,7 +155,7 @@ export const AppHeader = ({ isAuthenticated, user, onLogout, onLogin, repoUrl, s
                             >
                                 <GitHubIcon />
                                 <span className="hidden md:inline">Star on GitHub</span>
-                            </a>
+                            </a> */}
 
                             {isAuthenticated ? (
                                 <>
@@ -195,7 +172,7 @@ export const AppHeader = ({ isAuthenticated, user, onLogout, onLogin, repoUrl, s
                                 </button>
                             )}
                                 <div className="flex flex-col items-center">
-                                <a href="https://www.producthunt.com/products/gitforme?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-gitforme" target="_blank" rel="noopener noreferrer">
+                                {/* <a href="https://www.producthunt.com/products/gitforme?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-gitforme" target="_blank" rel="noopener noreferrer">
                                     <img
                                         src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=995370&theme=neutral" 
                                         alt="GitForme - Understand any GitHub repository in minutes, not days. | Product Hunt" 
@@ -203,9 +180,9 @@ export const AppHeader = ({ isAuthenticated, user, onLogout, onLogin, repoUrl, s
                                         width="250"
                                         height="54"
                                     />
-                                </a>
+                                </a> */}
                             </div>
-                                        <a
+                                        {/* <a
                                 href="https://coff.ee/herinsoni3a"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -214,7 +191,7 @@ export const AppHeader = ({ isAuthenticated, user, onLogout, onLogin, repoUrl, s
                             >
                                 <CoffeeIcon />
                                 <span className="hidden lg:inline">Support</span>
-                            </a>
+                            </a> */}
                         </div>
                     </div>
                 </div>

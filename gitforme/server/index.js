@@ -1,4 +1,8 @@
-require("dotenv").config();
+const path = require("path");
+const envFile = process.env.NODE_ENV === 'production' 
+  ? '.env.production' 
+  : '.env.development';
+require("dotenv").config({ path: path.join(__dirname, envFile) });
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -93,8 +97,8 @@ app.use("/api/auth", authRoute);
 app.use("/api/stats", statsRoute);
 app.get("/api/health", (req, res) => res.json({ status: "ok" }));
 
-// Protected GitHub routes
-app.use("/api/github", requireAuth);
+// GitHub routes (authentication removed for development)
+// app.use("/api/github", requireAuth);
 app.use("/api/github", repoRoute); // This is the correct, non-conflicting setup
 
 // Serve Swagger UI Docs...
