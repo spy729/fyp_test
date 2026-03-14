@@ -107,7 +107,7 @@ export const AuthProvider = ({ children }) => {
         
         // Cross-tab/session sync for login/logout
         const handleStorage = (e) => {
-            if (e.key !== 'gitforme_auth_state') {
+            if (e.key !== 'repomind_auth_state') {
                 return;
             }
             verifyUser();
@@ -134,7 +134,7 @@ export const AuthProvider = ({ children }) => {
             localStorage.setItem('auth_token', token);
         }
         
-        localStorage.setItem('gitforme_auth_state', Date.now().toString());
+        localStorage.setItem('repomind_auth_state', Date.now().toString());
     };
 
     const logout = async () => {
@@ -152,7 +152,7 @@ export const AuthProvider = ({ children }) => {
             setUser(null);
             setIsAuthenticated(false);
             localStorage.removeItem('auth_token');
-            localStorage.setItem('gitforme_auth_state', Date.now().toString());
+            localStorage.setItem('repomind_auth_state', Date.now().toString());
         }
     };
     

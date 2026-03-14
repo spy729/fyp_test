@@ -28,7 +28,8 @@
         {
           "id": "gitforme-sidebar",
           "name": "GitForMe Insights",
-          "type": "webview"
+          "type": "webview",
+          "icon": "media/icon.svg"
         }
       ]
     }

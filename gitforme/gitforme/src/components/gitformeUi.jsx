@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ChatbotPanel from './Chatbot';
 import RepoDetailView from './RepoDetailView';
-import LandingPageContent from '../PageContent/LandingPageContent';
+import {LandingPageContent} from '../PageContent/LandingPageContent.jsx';
 import { AppHeader } from '../PageContent/AppHeader';
 
 const ChatIcon = () => (
@@ -53,7 +53,7 @@ const LoginPromptModal = ({ onLogin, onClose }) => (
     </motion.div>
 );
 
-const GitformeUi = () => {
+const RepomindUi = () => {
   const { isAuthenticated, user, logout, isLoading } = useAuth();
   const navigate = useNavigate();
   const { username, reponame } = useParams();
@@ -72,17 +72,17 @@ const GitformeUi = () => {
   const [showLoginPrompt, setShowLoginPrompt] = useState(false);
   const [rateLimitExceeded, setRateLimitExceeded] = useState(false);
   const [apiDown, setApiDown] = useState(false);
-  const UNAUTHENTICATED_USAGE_LIMIT = 2;
+  // Usage limit removed: unlimited cooks before login
   const apiServerUrl = import.meta.env.VITE_API_URL;
 
   // Auto-load repo and show correct URL in search bar
   useEffect(() => {
     let canonicalUsername = username ? stripGitSuffix(username) : 'herin7';
-    let canonicalRepo = reponame ? stripGitSuffix(reponame) : 'gitforme';
+    let canonicalRepo = reponame ? stripGitSuffix(reponame) : 'repomind';
     if (canonicalUsername && canonicalRepo) {
       setRepoUrl(`https://github.com/${canonicalUsername}/${canonicalRepo}`);
     } else {
-      setRepoUrl('https://github.com/herin7/gitforme');
+      setRepoUrl('https://github.com/herin7/repomind');
     }
   }, [username, reponame]);
 
@@ -130,21 +130,7 @@ const GitformeUi = () => {
       const cleanRepoName = stripGitSuffix(pathParts[1]);
       const repoIdentifier = `${cleanUsername}/${cleanRepoName}`;
 
-      // Check usage limit only if the user is not authenticated
-      if (!isAuthenticated) {
-        const viewedRepos = JSON.parse(localStorage.getItem('viewedRepos') || '[]');
-        // If repo is new and limit is reached, show prompt
-        if (!viewedRepos.includes(repoIdentifier) && viewedRepos.length >= UNAUTHENTICATED_USAGE_LIMIT) {
-          setShowLoginPrompt(true);
-          return;
-        }
-
-        // If repo is new and limit is not reached, add it to tracking
-        if (!viewedRepos.includes(repoIdentifier)) {
-          viewedRepos.push(repoIdentifier);
-          localStorage.setItem('viewedRepos', JSON.stringify(viewedRepos));
-        }
-      }
+      // Usage limit removed: allow unlimited cooks before login
 
       // Proceed to the repo page (always without .git)
       navigate(`/${cleanUsername}/${cleanRepoName}`);
@@ -273,21 +259,7 @@ const GitformeUi = () => {
         </motion.div>
       </AnimatePresence>
       
-      <footer className="text-center py-8 px-4 mt-16 border-t-2 border-black bg-white/50">
-        <div className="flex flex-col items-center gap-3">
-          <p className="flex items-center gap-2 text-gray-600 font-medium">
-            Inspired by: <a href="https://gitingest.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Gitingest.com</a>
-          </p>
-          <p className="flex items-center gap-2 text-gray-600 font-medium">
-            <LaptopIcon />
-            Created by <a href="https://github.com/herin7" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Herin</a>
-          </p>
-          <p className="text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} GitForMe. All Rights Reserved.
-          </p>
-        </div>
-      </footer>
-
+  
       <AnimatePresence>
         {!isChatOpen && (
           <motion.button
@@ -312,4 +284,4 @@ const GitformeUi = () => {
   );
 };
 
-export default GitformeUi;
+export default RepomindUi;

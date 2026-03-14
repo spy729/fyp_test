@@ -6,9 +6,24 @@ export default {
   ],
   theme: {
     extend: {
-         fontFamily: {
+      fontFamily: {
         'space-mono': ['Space Mono', 'monospace'],
       },
+      colors: {
+        github: {
+          bg: '#0d1117',
+          panel: '#161b22',
+          border: '#21262d',
+          text: '#ffffff',
+          link: '#58a6ff',
+          linkHover: '#79c0ff',
+          inputBg: '#161b22',
+          inputText: '#ffffff',
+          inputPlaceholder: '#8b949e',
+          buttonBg: '#238636',
+          buttonHover: '#2ea043',
+        }
+      }
     },
   },
   plugins: [

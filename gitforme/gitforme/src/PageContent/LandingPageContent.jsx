@@ -14,7 +14,7 @@ import {
 import FeatureCard from '../cards/FeatureCard';
 import StepCard from '../cards/StepCard';
 
-const LandingPageContent = () => {
+export const LandingPageContent = () => {
     const [userCount, setUserCount] = useState(null);
     const [isCountLoading, setIsCountLoading] = useState(true);
     // Fetch the dynamic user count from the backend when the component mounts.

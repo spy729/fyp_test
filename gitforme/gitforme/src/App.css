@@ -1,0 +1,56 @@
+/* GitHub Dark Theme Global Styles */
+body {
+  background-color: #0d1117;
+  color: #ffffff;
+}
+
+a {
+  color: #58a6ff;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #79c0ff;
+}
+
+.card, .panel, .modal, .container, .box {
+  background-color: #161b22;
+  border: 1px solid #21262d;
+  color: #ffffff;
+}
+
+input, textarea, select {
+  background-color: #161b22;
+  color: #ffffff;
+  border: 1px solid #21262d;
+}
+input::placeholder, textarea::placeholder {
+  color: #8b949e;
+}
+
+button {
+  background-color: #238636;
+  color: #ffffff;
+  border: 1px solid #21262d;
+  transition: background 0.2s;
+}
+button:hover {
+  background-color: #2ea043;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+}
+
+.border {
+  border-color: #21262d !important;
+}
+
+.bg-dark {
+  background-color: #0d1117 !important;
+}
+.bg-panel {
+  background-color: #161b22 !important;
+}
+.text-white {
+  color: #ffffff !important;
+}

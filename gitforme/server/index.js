@@ -30,10 +30,10 @@ const redisStore = new RedisStore({
 // CORS configuration
 const allowedOrigins = [
   config.frontendUrl,
-  'https://www.gitforme.tech',
-  'https://gitforme.tech',
-  'https://gitforme-jbsp.vercel.app',
-  'https://gitforme-bot.onrender.com',
+  'https://www.repomind.tech',
+  'https://repomind.tech',
+  'https://repomind-jbsp.vercel.app',
+  'https://repomind-bot.onrender.com',
   'http://localhost:5173',
   'http://localhost:5173/',
 ];
@@ -94,8 +94,7 @@ app.use("/api/stats", statsRoute);
 app.get("/api/health", (req, res) => res.json({ status: "ok" }));
 
 // Protected GitHub routes
-app.use("/api/github", requireAuth);
-app.use("/api/github", repoRoute); // This is the correct, non-conflicting setup
+app.use("/api/github", repoRoute); // Public access to GitHub routes
 
 // Serve Swagger UI Docs...
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
